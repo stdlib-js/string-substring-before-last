@@ -1,6 +1,6 @@
 {
   "name": "@stdlib/string-substring-before-last",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "Return the part of a string before the last occurrence of a specified substring.",
   "license": "Apache-2.0",
   "author": {
