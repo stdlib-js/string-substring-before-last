@@ -18,7 +18,7 @@
 
 // TypeScript Version: 2.0
 
-/// <reference types="@stdlib/types"/>
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@esm/index.d.ts"/>
 
 /**
 * Returns the part of a string before the last occurrence of a specified substring.
