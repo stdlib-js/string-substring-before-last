@@ -34,14 +34,31 @@ limitations under the License.
 
 <!-- Package usage documentation. -->
 
+<section class="installation">
 
+## Installation
+
+```bash
+npm install @stdlib/string-substring-before-last
+```
+
+Alternatively,
+
+-   To load the package in a website via a `script` tag without installation and bundlers, use the [ES Module][es-module] available on the [`esm` branch][esm-url].
+-   If you are using Deno, visit the [`deno` branch][deno-url].
+-   For use in Observable, or in browser/node environments, use the [Universal Module Definition (UMD)][umd] build available on the [`umd` branch][umd-url].
+-   To use as a general utility for the command line, install the corresponding [CLI package][cli-section] globally.
+
+The [branches.md][branches-url] file summarizes the available branches and displays a diagram illustrating their relationships.
+
+</section>
 
 <section class="usage">
 
 ## Usage
 
 ```javascript
-import substringBeforeLast from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-substring-before-last@esm/index.mjs';
+var substringBeforeLast = require( '@stdlib/string-substring-before-last' );
 ```
 
 #### substringBeforeLast( str, search )
@@ -82,13 +99,8 @@ out = substringBeforeLast( str, 'Boop' );
 
 <!-- eslint no-undef: "error" -->
 
-```html
-<!DOCTYPE html>
-<html lang="en">
-<body>
-<script type="module">
-
-import substringBeforeLast from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-substring-before-last@esm/index.mjs';
+```javascript
+var substringBeforeLast = require( '@stdlib/string-substring-before-last' );
 
 var str = 'beep boop';
 var out = substringBeforeLast( str, ' ' );
@@ -102,10 +114,6 @@ out = substringBeforeLast( str, 'x' );
 
 out = substringBeforeLast( str, '' );
 // returns 'beep boop'
-
-</script>
-</body>
-</html>
 ```
 
 </section>
@@ -114,7 +122,101 @@ out = substringBeforeLast( str, '' );
 
 <!-- Section for describing a command-line interface. -->
 
+* * *
 
+<section class="cli">
+
+## CLI
+
+<section class="installation">
+
+## Installation
+
+To use as a general utility, install the CLI package globally
+
+```bash
+npm install -g @stdlib/string-substring-before-last-cli
+```
+
+</section>
+<!-- CLI usage documentation. -->
+
+
+<section class="usage">
+
+### Usage
+
+```text
+Usage: substring-before-last [options] --search=<string> [<string>]
+
+Options:
+
+  -h,    --help                Print this message.
+  -V,    --version             Print the package version.
+         --search string       Search string.
+         --split sep           Delimiter for stdin data. Default: '/\\r?\\n/'.
+```
+
+</section>
+
+<!-- /.usage -->
+
+<!-- CLI usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
+
+<section class="notes">
+
+### Notes
+
+-   If the split separator is a [regular expression][mdn-regexp], ensure that the `split` option is either properly escaped or enclosed in quotes.
+
+    ```bash
+    # Not escaped...
+    $ echo -n $'foo\nbar\nbaz' | substring-before-last --search a --split /\r?\n/
+
+    # Escaped...
+    $ echo -n $'foo\nbar\nbaz' | substring-before-last --search a --split /\\r?\\n/
+    ```
+
+-   The implementation ignores trailing delimiters.
+
+</section>
+
+<!-- /.notes -->
+
+<!-- CLI usage examples. -->
+
+<section class="examples">
+
+### Examples
+
+```bash
+$ substring-before-last abcdefg --search d
+abc
+```
+
+To use as a [standard stream][standard-streams],
+
+```bash
+$ echo -n $'beep\nboop' | substring-before-last --search p
+bee
+boo
+```
+
+By default, when used as a [standard stream][standard-streams], the implementation assumes newline-delimited data. To specify an alternative delimiter, set the `split` option.
+
+```bash
+$ echo -n 'beep\tboop' | substring-before-last --search p --split '\t'
+bee
+boo
+```
+
+</section>
+
+<!-- /.examples -->
+
+</section>
+
+<!-- /.cli -->
 
 <!-- Section to include cited references. If references are included, add a horizontal rule *before* the section. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -132,9 +234,9 @@ out = substringBeforeLast( str, '' );
 
 ## See Also
 
--   <span class="package-name">[`@stdlib/string/substring-before`][@stdlib/string/substring-before]</span><span class="delimiter">: </span><span class="description">return the part of a string before a specified substring.</span>
--   <span class="package-name">[`@stdlib/string/substring-after`][@stdlib/string/substring-after]</span><span class="delimiter">: </span><span class="description">return the part of a string after a specified substring.</span>
--   <span class="package-name">[`@stdlib/string/substring-after-last`][@stdlib/string/substring-after-last]</span><span class="delimiter">: </span><span class="description">return the part of a string after the last occurrence of a specified substring.</span>
+-   <span class="package-name">[`@stdlib/string-substring-before`][@stdlib/string/substring-before]</span><span class="delimiter">: </span><span class="description">return the part of a string before a specified substring.</span>
+-   <span class="package-name">[`@stdlib/string-substring-after`][@stdlib/string/substring-after]</span><span class="delimiter">: </span><span class="description">return the part of a string after a specified substring.</span>
+-   <span class="package-name">[`@stdlib/string-substring-after-last`][@stdlib/string/substring-after-last]</span><span class="delimiter">: </span><span class="description">return the part of a string after the last occurrence of a specified substring.</span>
 
 </section>
 
@@ -149,7 +251,7 @@ out = substringBeforeLast( str, '' );
 
 ## Notice
 
-This package is part of [stdlib][stdlib], a standard library with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
+This package is part of [stdlib][stdlib], a standard library for JavaScript and Node.js, with an emphasis on numerical and scientific computing. The library provides a collection of robust, high performance libraries for mathematics, statistics, streams, utilities, and more.
 
 For more information on the project, filing bug reports and feature requests, and guidance on how to develop [stdlib][stdlib], see the main project [repository][stdlib].
 
@@ -199,6 +301,10 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
 
+[cli-section]: https://github.com/stdlib-js/string-substring-before-last#cli
+[cli-url]: https://github.com/stdlib-js/string-substring-before-last/tree/cli
+[@stdlib/string-substring-before-last]: https://github.com/stdlib-js/string-substring-before-last/tree/main
+
 [umd]: https://github.com/umdjs/umd
 [es-module]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules
 
@@ -215,11 +321,11 @@ Copyright &copy; 2016-2023. The Stdlib [Authors][stdlib-authors].
 
 <!-- <related-links> -->
 
-[@stdlib/string/substring-before]: https://github.com/stdlib-js/string-substring-before/tree/esm
+[@stdlib/string/substring-before]: https://github.com/stdlib-js/string-substring-before
 
-[@stdlib/string/substring-after]: https://github.com/stdlib-js/string-substring-after/tree/esm
+[@stdlib/string/substring-after]: https://github.com/stdlib-js/string-substring-after
 
-[@stdlib/string/substring-after-last]: https://github.com/stdlib-js/string-substring-after-last/tree/esm
+[@stdlib/string/substring-after-last]: https://github.com/stdlib-js/string-substring-after-last
 
 <!-- </related-links> -->
 
