@@ -52,7 +52,7 @@ limitations under the License.
 ## Usage
 
 ```javascript
-import substringBeforeLast from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-substring-before-last@esm/index.mjs';
+import substringBeforeLast from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-substring-before-last@v0.1.0-esm/index.mjs';
 ```
 
 #### substringBeforeLast( str, search )
@@ -99,7 +99,7 @@ out = substringBeforeLast( str, 'Boop' );
 <body>
 <script type="module">
 
-import substringBeforeLast from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-substring-before-last@esm/index.mjs';
+import substringBeforeLast from 'https://cdn.jsdelivr.net/gh/stdlib-js/string-substring-before-last@v0.1.0-esm/index.mjs';
 
 var str = 'beep boop';
 var out = substringBeforeLast( str, ' ' );
