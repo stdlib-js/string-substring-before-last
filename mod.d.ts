@@ -1,4 +1,4 @@
-/**
+/*
 * @license Apache-2.0
 *
 * Copyright (c) 2021 The Stdlib Authors.
@@ -16,24 +16,16 @@
 * limitations under the License.
 */
 
-'use strict';
+// TypeScript Version: 4.1
 
-// MODULES //
-
-var isString = require( '@stdlib/assert-is-string' ).isPrimitive;
-var format = require( '@stdlib/string-format' );
-
-
-// MAIN //
+/// <reference types="https://cdn.jsdelivr.net/gh/stdlib-js/types@main/index.d.ts"/>
 
 /**
 * Returns the part of a string before the last occurrence of a specified substring.
 *
-* @param {string} str - input string
-* @param {string} search - search value
-* @throws {TypeError} first argument must be a string
-* @throws {TypeError} second argument must be a string
-* @returns {string} substring
+* @param str - input string
+* @param search - search value
+* @returns substring
 *
 * @example
 * var out = substringBeforeLast( 'abcba', 'b' );
@@ -51,22 +43,9 @@ var format = require( '@stdlib/string-format' );
 * var out = substringBeforeLast( 'abcba', '' );
 * // returns 'abcba'
 */
-function substringBeforeLast( str, search ) {
-	var idx;
-	if ( !isString( str ) ) {
-		throw new TypeError( format( 'invalid argument. First argument must be a string. Value: `%s`.', str ) );
-	}
-	if ( !isString( search ) ) {
-		throw new TypeError( format( 'invalid argument. Second argument must be a string. Value: `%s`.', search ) );
-	}
-	idx = str.lastIndexOf( search );
-	if ( idx === -1 ) {
-		return str;
-	}
-	return str.substring( 0, idx );
-}
+declare function substringBeforeLast( str: string, search: string ): string;
 
 
 // EXPORTS //
 
-module.exports = substringBeforeLast;
+export = substringBeforeLast;
